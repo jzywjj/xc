@@ -1,0 +1,25 @@
+
+server:
+  port: 8882
+  servlet:
+    context-path: /order
+
+spring:
+  application:
+    name: xc-order
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8888/eureka
+
+
+logging:
+  level:
+    -root: info
+    -org.springframework.web: info

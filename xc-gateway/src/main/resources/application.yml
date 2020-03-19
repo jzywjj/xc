@@ -1,0 +1,37 @@
+server:
+  port: 8883
+  
+
+spring:
+  application:
+    name: lft-gateway
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+  cloud:    gateway:      discovery:        locator:          enabled: true
+      routes:      - id: xc-order
+        # 目标服务地址（uri：地址，请求转发后的地址）
+        uri: lb://xc-order #要访问的微服务的服务名
+        # 路由条件（predicates：断言，匹配 HTTP 请求内容）
+        predicates: 
+        - Path=/order/**
+        
+      - id: xc-uac
+        # 目标服务地址（uri：地址，请求转发后的地址）
+        uri: lb://xc-uac #要访问的微服务的服务名
+        # 路由条件（predicates：断言，匹配 HTTP 请求内容）
+        predicates: 
+        - Path=/uac/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+
+
+logging:
+  level:
+    -root: info
+    -org.springframework.web: info

@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: lft-eureka-server
+eureka:
+  #  instance:
+  #    hostname: localhost
+  client:
+    register-with-eureka: false #是否像注册中心注册自己
+    fetch-registry: false #是否想注册中心获取自己的信息
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true     #使用IP地址进行注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #向注册中心注册服务ID 效果在控制台界面上会显示对应的IP地址和端口
+#  server:
+#    enable-self-preservation: false #关闭服务的自我保护功能，在开发时候需要
+#    eviction-interval-timer-in-ms: 3000 #剔除服务的时间间隔

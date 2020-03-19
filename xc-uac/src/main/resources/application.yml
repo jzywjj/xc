@@ -1,0 +1,35 @@
+server:
+  port: 8881
+  servlet:    context-path: /uac
+
+
+spring:
+  application:
+    name: xc-uac
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://39.106.84.152:3306/rtadmin?useUnicode=true&useSSL=false&characterEncoding=utf8
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Yake910612!
+
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8888/eureka
+
+
+logging:
+  level:
+    -root: info
+    -org.springframework.web: info
+
+
+
